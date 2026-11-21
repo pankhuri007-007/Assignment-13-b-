@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+struct Student {
+    float marks1;
+    float marks2;
+    float marks3;
+};
+
+int main() {
+    struct Student s;
+    struct Student *ptr = &s;
+
+    float total, average;
+    char grade;
+
+    printf("Enter marks of three subjects: ");
+    scanf("%f %f %f", &ptr->marks1, &ptr->marks2, &ptr->marks3);
+
+    total = ptr->marks1 + ptr->marks2 + ptr->marks3;
+    average = total / 3;
+
+    if (average >= 90)
+        grade = 'A';
+    else if (average >= 75)
+        grade = 'B';
+    else if (average >= 60)
+        grade = 'C';
+    else if (average >= 40)
+        grade = 'D';
+    else
+        grade = 'F';
+
+    printf("\nTotal Marks = %.2f", total);
+    printf("\nAverage Marks = %.2f", average);
+    printf("\nGrade = %c", grade);
+
+    return 0;
+}
